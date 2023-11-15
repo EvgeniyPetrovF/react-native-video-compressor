@@ -1,18 +1,25 @@
-import * as React from 'react';
+import React from 'react';
 
-import { StyleSheet, View, Text } from 'react-native';
-import { multiply } from 'react-native-video-compressor';
+import { StyleSheet, View, Button } from 'react-native';
+import { compressVideo } from 'react-native-video-compressor';
+import { launchImageLibrary } from 'react-native-image-picker';
 
 export default function App() {
-  const [result, setResult] = React.useState<number | undefined>();
-
-  React.useEffect(() => {
-    multiply(3, 7).then(setResult);
-  }, []);
+  const selectVideo = async () => {
+    try {
+      const video = await launchImageLibrary({ mediaType: 'video' });
+      if (video.assets?.[0]?.uri) {
+        const outputURL = await compressVideo(video.assets[0].uri);
+        console.log('url of the compressed video:', outputURL);
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   return (
     <View style={styles.container}>
-      <Text>Result: {result}</Text>
+      <Button title="Select Video" onPress={selectVideo} />
     </View>
   );
 }

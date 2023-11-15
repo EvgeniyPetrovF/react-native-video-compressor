@@ -1,21 +1,18 @@
 #import "VideoCompressor.h"
 
-@implementation VideoCompressor
-RCT_EXPORT_MODULE()
+@interface RCT_EXTERN_MODULE(VideoCompressor, NSObject)
 
-// Example method
-// See // https://reactnative.dev/docs/native-modules-ios
-RCT_EXPORT_METHOD(multiply:(double)a
-                  b:(double)b
-                  resolve:(RCTPromiseResolveBlock)resolve
-                  reject:(RCTPromiseRejectBlock)reject)
++ (BOOL)requiresMainQueueSetup
 {
-    NSNumber *result = @(a * b);
-
-    resolve(result);
+   return NO;
 }
 
-// Don't compile this code when we build for the old architecture.
+RCT_EXTERN_METHOD(compressVideo
+              :                 (NSURL)                     inputURL
+              withResolver:     (RCTPromiseResolveBlock)    resolve
+              withRejecter:     (RCTPromiseRejectBlock)     reject
+              )
+
 #ifdef RCT_NEW_ARCH_ENABLED
 - (std::shared_ptr<facebook::react::TurboModule>)getTurboModule:
     (const facebook::react::ObjCTurboModule::InitParams &)params

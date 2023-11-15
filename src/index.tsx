@@ -24,6 +24,10 @@ const VideoCompressor = VideoCompressorModule
       }
     );
 
-export function multiply(a: number, b: number): Promise<number> {
-  return VideoCompressor.multiply(a, b);
+export function compressVideo(inputURL: string): Promise<string> {
+  if (Platform.OS === 'ios') {
+    return VideoCompressor.compressVideo(inputURL);
+  } else {
+    return Promise.reject("It's not supported on your platform");
+  }
 }

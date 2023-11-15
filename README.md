@@ -1,6 +1,6 @@
 # react-native-video-compressor
 
-video compressor
+# IOS ONLY
 
 ## Installation
 
@@ -10,12 +10,18 @@ npm install react-native-video-compressor
 
 ## Usage
 
-```js
-import { multiply } from 'react-native-video-compressor';
+'react-native-image-picker' was used for picking video from phone gallery
 
+```js
+import { compressVideo } from 'react-native-video-compressor';
+import { launchImageLibrary } from 'react-native-image-picker';
 // ...
 
-const result = await multiply(3, 7);
+const video = await launchImageLibrary({ mediaType: 'video' });
+if (video.assets?.[0]?.uri) {
+  const outputURL = await compressVideo(video.assets[0].uri);
+  console.log('url of the compressed video:', outputURL);
+}
 ```
 
 ## Contributing
