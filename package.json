@@ -1,5 +1,5 @@
 {
-  "name": "react-native-video-compressor",
+  "name": "rn-video-compressor",
   "version": "0.1.0",
   "description": "video compressor",
   "main": "lib/commonjs/index",
