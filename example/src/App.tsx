@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { StyleSheet, View, Button } from 'react-native';
-import { compressVideo } from 'react-native-video-compressor';
+import { compressVideo } from 'rn-video-compressor';
 import { launchImageLibrary } from 'react-native-image-picker';
 
 export default function App() {

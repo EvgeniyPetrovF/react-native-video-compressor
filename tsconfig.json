@@ -2,7 +2,7 @@
   "compilerOptions": {
     "rootDir": ".",
     "paths": {
-      "react-native-video-compressor": ["./src/index"]
+      "rn-video-compressor": ["./src/index"]
     },
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,

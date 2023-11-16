@@ -1,11 +1,20 @@
 # react-native-video-compressor
 
+# Description
+
 # IOS ONLY
+
+Turbo Module package for compressing video file by providing url of the file
+Requires New Architecture
 
 ## Installation
 
 ```sh
-npm install react-native-video-compressor
+npm install rn-video-compressor
+```
+
+```sh
+yarn add rn-video-compressor
 ```
 
 ## Usage
@@ -13,7 +22,7 @@ npm install react-native-video-compressor
 'react-native-image-picker' was used for picking video from phone gallery
 
 ```js
-import { compressVideo } from 'react-native-video-compressor';
+import { compressVideo } from 'rn-video-compressor';
 import { launchImageLibrary } from 'react-native-image-picker';
 // ...
 
